@@ -8,6 +8,7 @@ RUN cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     && apt-get update \
     && apt-get install -y \
        apt-utils \
+       freetds-bin \
        autoconf \
        bc \
        bison \
@@ -165,6 +166,7 @@ RUN mkdir -p /tmp/install/ \
         --with-mcrypt \
         --with-mhash \
         --with-mysql=/usr/local/mysql \
+	--with-mssql \
         --with-mysqli \
         --with-pcre-regex \
         --with-pdo-mysql \
