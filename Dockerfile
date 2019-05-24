@@ -9,6 +9,8 @@ RUN cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     && apt-get install -y \
        apt-utils \
        freetds-bin \
+       freetds-common \
+       freetds-dev \
        autoconf \
        bc \
        bison \
