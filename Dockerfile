@@ -114,11 +114,6 @@ RUN mkdir -p /tmp/install/ \
     && rm -rf /tmp/install
 
 ENV GPG_KEYS 0B96609E270F565C13292B24C13C70B87267B52D 0BD78B5F97500D450838F95DFE857D9A90D90EC1 F38252826ACD957EF380D39F2F7956BC5DA04B5D
-RUN set -xe \
-    && for key in $GPG_KEYS; do \
-         gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
-       done
-
 ENV TZ Asia/Tokyo
 ENV HOSTNAME apache22-php440
 
