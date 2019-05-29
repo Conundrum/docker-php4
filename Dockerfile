@@ -168,7 +168,6 @@ RUN mkdir -p /tmp/install/ \
         --with-mcrypt \
         --with-mhash \
         --with-mysql=/usr/local/mysql \
-	--with-mssql \
         --with-mysqli \
         --with-pcre-regex \
         --with-pdo-mysql \
