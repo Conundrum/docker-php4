@@ -88,14 +88,17 @@ RUN mkdir -p /tmp/install/ \
     # \
     && mkdir -p /tmp/install/ \
     && cd /tmp/install \ 
-    && wget ftp://ftp.freetds.org/pub/freetds/old/0.53-and-before/freetds-0.51.tgz \
-    && unzip freetds-0.51.tgz \
-    && ./configure \
+    && wget ftp://ftp.freetds.org/pub/freetds/old/0.82/freetds-0.82.tar.gz \
+    && tar zxf ./freetds-0.82.tar.gz \
+    && cd /tmp/install/freetds-0.82 \
+    && ./configure --prefix=/usr/local/freetds \
     && make \
     && make install \
-    && cd /tmp
+    && cd /tmp \
+    && cp /tmp/install/freetds-0.82/src/tds/.libs/*.a /usr/local/freetds/lib/ \
+    && cp /tmp/install/freetds-0.82/include/tds.h /usr/local/freetds/include/ \
     && rm -rf /tmp/install/ \ 
-#   && \
+    # \
     && mkdir -p /tmp/install/ \
     && cd /tmp/install \
     && wget http://www.ijg.org/files/jpegsrc.v7.tar.gz \
@@ -176,7 +179,7 @@ RUN mkdir -p /tmp/install/ \
         --with-mhash \
         --with-mysql=/usr/local/mysql \
         --with-mysqli \
-        # --with-mssql=/usr/share/freetds \
+        --with-mssql=/usr/local/freetds \
         --with-pcre-regex \
         --with-pdo-mysql \
         --with-pgsql \
