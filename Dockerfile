@@ -79,8 +79,6 @@ RUN mkdir -p /tmp/install/ \
     && cd /tmp/install \
     && wget https://mirrors.mediatemple.net/debian-archive/debian/pool/main/d/db4.6/libdb4.6_4.6.21-16_amd64.deb \
     && wget http://old-releases.ubuntu.com/ubuntu/pool/universe/d/db4.6/libdb4.6-dev_4.6.21-16_amd64.deb \
-    && wget ftp://ftp.freetds.org/pub/freetds/old/0.53-and-before/freetds-0.51.tgz \
-    && tar xzf freetds-0.51.tgz \
     && echo "2f03a50d72f66d6c6ac976cb0ff1131a  libdb4.6-dev_4.6.21-16_amd64.deb" > md5sums \
     && md5sum -c md5sums \
     && dpkg -i libdb4.6-dev_4.6.21-16_amd64.deb \
@@ -88,6 +86,16 @@ RUN mkdir -p /tmp/install/ \
     && cd \
     && rm -rf /tmp/install \
     # \
+    && mkdir -p /tmp/install/ \
+    && cd /tmp/install \ 
+    && wget ftp://ftp.freetds.org/pub/freetds/old/0.53-and-before/freetds-0.51.tgz \
+    && unzip freetds-0.51.tgz \
+    && ./configure \
+    && make \
+    && make install \
+    && cd /tmp
+    && rm -rf /tmp/install/ \ 
+#   && \
     && mkdir -p /tmp/install/ \
     && cd /tmp/install \
     && wget http://www.ijg.org/files/jpegsrc.v7.tar.gz \
