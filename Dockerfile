@@ -169,6 +169,7 @@ RUN mkdir -p /tmp/install/ \
         --with-mhash \
         --with-mysql=/usr/local/mysql \
         --with-mysqli \
+        --with-mssql=/usr/share/freetds
         --with-pcre-regex \
         --with-pdo-mysql \
         --with-pgsql \
